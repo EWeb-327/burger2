@@ -2,9 +2,6 @@ var express = require("express")
 var app = express()
 var Burger = require("../models/burger")
 module.exports = function(app){
-app.get("/", function(req,res){
-    res.render("lists", data)
-});
 
 app.get("/burgers", function(req, res){
     Burger.findAll().then(function(burgers){
