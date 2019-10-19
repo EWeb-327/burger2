@@ -3,7 +3,7 @@ var app = express()
 var Burger = require("../models/burger")
 module.exports = function(app){
 
-app.get("/burgers", function(req, res){
+app.get("/", function(req, res){
     Burger.findAll().then(function(burgers){
         res.render("lists", {
             burgers
