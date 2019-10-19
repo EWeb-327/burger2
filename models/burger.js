@@ -1,33 +1,15 @@
 var Sequelize = require("sequelize");
+// sequelize (lowercase) references our connection to the DB.
 var sequelize = require("../config/connection.js");
 
+// Creates a "Chirp" model that matches up with DB
 var Burger = sequelize.define("Burger", {
-    burger_name: Sequelize.STRING,
-    devoured: Sequelize.BOOLEAN
+  burger_name: Sequelize.STRING,
+  devoured: {type: Sequelize.BOOLEAN, defaultValue: false}
 });
 
+// Syncs with DB
 Burger.sync();
 
-// var burger = {
-//     all: function(cb){
-//         orm.selectAll("burgers", function(data){
-//             cb(data);
-//         });
-//     },
-//     create: function(cols, vals, cb){
-//         orm.insertOne("burgers", cols, vals, function(data){
-//             cb(data);
-//         });
-//     },
-//     update: function(objColVals, condition, cb){
-//         orm.updateOne("burgers", objColVals, condition, function(data){
-//             cb(data);
-//         });
-//     },
-//     delete: function(condition, cb){
-//         orm.deleteOne("burgers", condition, function(data){
-//             cb(data);
-//         });
-//     }
-// }
- module.exports = Burger;
+// Makes the Chirp Model available for other files (will also create a table)
+module.exports = Burger;
