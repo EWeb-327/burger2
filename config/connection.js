@@ -11,7 +11,7 @@ var sequelize = new Sequelize("burgers_db", "root", "Ejest_327", {
     idle: 10000
   }
 });
-}
+
 
 // Exports the connection for other files to use
 module.exports = sequelize;
