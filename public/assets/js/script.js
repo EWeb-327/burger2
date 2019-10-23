@@ -2,15 +2,16 @@ $(function(){
     $(".change-devour").on("click", function(event){
         var id = $(this).data("id")
         var newDev = $(this).data("newdev")
-
+ 
         var newDevouredState = {
-            devoured: newDev
+            devoured: !newDev
         }
-
-        $.ajax("/api/burgers/" + id, {
-            type: "PUT",
+        console.log(newDev)
+        $.ajax({
+            method: "PUT",
+            url: `/api/burgers/${id}`,
             data: newDevouredState
-        }).then(function(){
+          }).then(function(){
             console.log(`changed devoured to ${newDev}`);
             location.reload()
         });
@@ -42,7 +43,7 @@ $(function(){
             data: newBurger
         }).then(function(){
             console.log("created new burger");
-            window.location.replace("/burgers")
+            location.reload()
         });
 
         
