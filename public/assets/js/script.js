@@ -7,9 +7,8 @@ $(function(){
             devoured: !newDev
         }
         console.log(newDev)
-        $.ajax({
+        $.ajax("/api/burgers/" + id, {
             type: "PUT",
-            url: `/api/burgers/${id}`,
             data: newDevouredState
           }).then(function(){
             console.log(`changed devoured to ${newDev}`);
