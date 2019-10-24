@@ -8,7 +8,7 @@ $(function(){
         }
         console.log(newDev)
         $.ajax({
-            method: "PUT",
+            type: "PUT",
             url: `/api/burgers/${id}`,
             data: newDevouredState
           }).then(function(){
